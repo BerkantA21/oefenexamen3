@@ -10,36 +10,37 @@
 
 
     public function getReserverings() {
-      $sql = "SELECT  Reservering.Voornaam
-                     ,Reservering.Tussenvoegsel
-                     ,Reservering.Achternaam
-                     ,Reservering.Datum
-                     ,Reservering.AantalUren
-                     ,Reservering.AantalVolwassen
-                     ,Reservering.AantalKinderen
-                      ,Reservering.ReserveringStatusId
-              FROM `Reservering` 
+      $sql = "SELECT Reservering.Voornaam,
+                     Reservering.Tussenvoegsel,
+                     Reservering.Achternaam,
+                     Reservering.Datum,
+                     Reservering.AantalUren,
+                     Reservering.AantalVolwassen,
+                     Reservering.AantalKinderen,
+                     ReserveringStatus.Status
+              FROM `Reservering`
+              INNER JOIN ReserveringStatus 
+              ON Reservering.ReserveringStatusId = ReserveringStatus.Id 
               ORDER BY Datum DESC;";
       $this->db->query($sql);
       $result = $this->db->resultSet();
       return $result;
-    }
-
-    public function getReserveringById($Id) 
-    {
-        $sql = "SELECT  Reservering.Voornaam
-                     ,Reservering.Tussenvoegsel
-                     ,Reservering.Achternaam
-                     ,Reservering.Datum
-                     ,Reservering.AantalUren
-                     ,Reservering.AantalVolwassen
-                     ,Reservering.AantalKinderen
-                        FROM Reservering 
-                        WHERE Id = :Id;";
-        $this->db->query($sql);
-        $this->db->bind(':Id', $Id, PDO::PARAM_INT);
-        $result = $this->db->single();
-        return $result;
-    }
+  }
+  
+  public function getReserveringById($Id) {
+      $sql = "SELECT Reservering.Voornaam,
+                     Reservering.Tussenvoegsel,
+                     Reservering.Achternaam,
+                     Reservering.Datum,
+                     Reservering.AantalUren,
+                     Reservering.AantalVolwassen,
+                     Reservering.AantalKinderen
+              FROM Reservering 
+              WHERE Id = :Id;";
+      $this->db->query($sql);
+      $this->db->bind(':Id', $Id, PDO::PARAM_INT);
+      $result = $this->db->single();
+      return $result;
+  }
 
 }

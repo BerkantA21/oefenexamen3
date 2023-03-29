@@ -38,6 +38,6 @@ class Reservering extends Controller {
         'title' => 'Overzicht Reserveringen',
         'rows' => $rows
       ];
-      $this->view('/reservering/index', $data);
+      $this->view('Reservering/index', $data);
     }
   }
