@@ -9,7 +9,7 @@
     }
 
 
-    public function getReservering() {
+    public function getReserverings() {
       $sql = "SELECT  Reservering.Voornaam
                      ,Reservering.Tussenvoegsel
                      ,Reservering.Achternaam

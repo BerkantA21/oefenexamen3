@@ -4,7 +4,7 @@
 <h3><u><?= $data['title']; ?></u></h3><br>
 <h5>Overzicht Reserveringen</h5><br>
 
-<table border=1>
+<table>
     <thead>
         <th>Voornaam</th>
         <th>Tussenvoegsel</th>

@@ -12,7 +12,7 @@ class Reservering extends Controller {
       /**
        * Haal alle reserveringen op uit de model
        */
-      $reserveringen = $this->reserverenModel->getReservering();
+      $reserveringen = $this->reserverenModel->getReserverings();
   
       /**
        * Maak tabelrijen van de opgehaalde data over de reserveringen
