@@ -1,1 +1,0 @@
-<h3>Contactgegevens</h3>

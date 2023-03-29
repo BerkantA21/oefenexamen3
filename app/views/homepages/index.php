@@ -6,7 +6,7 @@
 
 
 
-<a href="<?=URLROOT;?>/reservation/index">reservations</a> 
+<a href="<?=URLROOT;?>/reservering/index">Overzicht reservering</a> 
 
 
 
