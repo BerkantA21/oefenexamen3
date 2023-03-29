@@ -9,7 +9,7 @@
         <th>Voornaam</th>
         <th>Tussenvoegsel</th>
         <th>Achternaam</th>
-        <th>Reserveringdatum</th>
+        <th>Reserveringsdatum</th>
         <th>Uren</th>
         <th>Volwassenen</th>
         <th>Kinderen</th>

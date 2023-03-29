@@ -9,5 +9,5 @@ define('APPROOT', dirname(dirname(__FILE__))) ;
 // Zet hier je virtualhostnaam. Let op dat er http:// voor staat anders werkt het niet
 define('URLROOT', 'http://www.bowlingcenter.com');
 
-define('SITENAME', 'Bowlingcentrum');
+define('SITENAME', 'Bowlingcenter');
 ?>
