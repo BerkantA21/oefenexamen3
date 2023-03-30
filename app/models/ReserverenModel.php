@@ -51,4 +51,58 @@
      // return $result;
   //}
 
+
+  public function getGewijzigdeReservering()
+  {
+    $sql = "SELECT Persoon.Voornaam,
+                   Persoon.Tussenvoegsel,
+                   Persoon.Achternaam,
+                   Reservering.Datum,
+                   Reservering.AantalUren,
+                   Reservering.AantalVolwassen,
+                   Reservering.AantalKinderen,
+                   PakketOptie.Naam AS PakketOptieNaam
+            FROM Reservering
+            INNER JOIN Persoon 
+            ON Persoon.Id = Reservering.PersoonId
+
+            INNER JOIN PakketOptie 
+            ON PakketOptie.Id = Reservering.PakketOptieId
+            
+            ORDER BY Reservering.Datum DESC";
+    $this->db->query($sql);
+    $result = $this->db->resultSet();
+    return $result;
+  }
+
+  public function getPakketOpties()
+    {
+    $sql = "SELECT Id, Naam FROM PakketOptie";
+    $this->db->query($sql);
+    $result = $this->db->resultSet();
+    return $result;
+    }
+
+  public function updatePakketOptie($post) {
+    $this->db->query(
+      "UPDATE PakketOptie 
+       SET    Id = :Id,
+       WHERE  Naam = :Naam;"
+    );
+    $this->db->query(
+      "INSERT INTO PakketOptie (Id, 
+                                Naam) 
+       VALUES                  (NULL, 
+                                :Id, 
+                                :Naam);"
+  );
+    $this->db->bind(':Id', $post['Id'], PDO::PARAM_STR);
+    $this->db->bind(':Naam', $post['Naam'], PDO::PARAM_STR);
+
+    return $this->db->execute();
+
+  }
+
+  
+
 }
