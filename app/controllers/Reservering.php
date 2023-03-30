@@ -13,7 +13,7 @@ class Reservering extends Controller {
        * Haal alle reserveringen op uit de model
        */
       $reserveringen = $this->reserverenModel->getReserverings();
-  
+
       /**
        * Maak tabelrijen van de opgehaalde data over de reserveringen
        */
@@ -27,7 +27,8 @@ class Reservering extends Controller {
                     <td>$value->AantalUren</td>
                     <td>$value->AantalVolwassen</td>
                     <td>$value->AantalKinderen</td>
-                    <td>$value->ReserveringStatusId</td>
+                    <td>$value->Naam</td>
+              
                   </tr>";
       }
       
@@ -38,6 +39,6 @@ class Reservering extends Controller {
         'title' => 'Overzicht Reserveringen',
         'rows' => $rows
       ];
-      $this->view('Reservering/index', $data);
+      $this->view('/Reservering/index', $data);
     }
   }
